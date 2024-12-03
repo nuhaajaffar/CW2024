@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import javafx.scene.shape.Rectangle;
+
 public class UserPlane extends FighterPlane {
 
 	private static final String IMAGE_NAME = "userplane.png";
@@ -13,10 +15,14 @@ public class UserPlane extends FighterPlane {
 	private static final int PROJECTILE_Y_POSITION_OFFSET = 20;
 	private int velocityMultiplier;
 	private int numberOfKills;
+	private final Rectangle hitbox;
+	private static final double HITBOX_X_OFFSET = 25.0;
+	private static final double HITBOX_Y_OFFSET = 25.0;
 
 	public UserPlane(int initialHealth) {
 		super(IMAGE_NAME, IMAGE_HEIGHT, INITIAL_X_POSITION, INITIAL_Y_POSITION, initialHealth);
 		velocityMultiplier = 0;
+		hitbox = new Rectangle(INITIAL_X_POSITION, INITIAL_Y_POSITION, 50, 50);
 	}
 	
 	@Override
@@ -29,6 +35,7 @@ public class UserPlane extends FighterPlane {
 				this.setTranslateY(initialTranslateY);
 			}
 		}
+		updateHitbox();
 	}
 	
 	@Override
@@ -65,4 +72,13 @@ public class UserPlane extends FighterPlane {
 		numberOfKills++;
 	}
 
+	@Override
+	public Rectangle getHitbox() {
+		return hitbox;
+	}
+
+	private void updateHitbox() {
+		hitbox.setX(getLayoutX() + getTranslateX() + HITBOX_X_OFFSET);
+		hitbox.setX(getLayoutY() + getTranslateY() + HITBOX_Y_OFFSET);
+	}
 }

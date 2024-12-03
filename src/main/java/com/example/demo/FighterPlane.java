@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import javafx.scene.shape.Rectangle;
+
 public abstract class FighterPlane extends ActiveActorDestructible {
 
 	private int health;
