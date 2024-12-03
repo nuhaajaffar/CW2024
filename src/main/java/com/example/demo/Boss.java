@@ -1,9 +1,9 @@
 package com.example.demo;
 
 import java.util.*;
+import javafx.scene.shape.Rectangle;
 
 public class Boss extends FighterPlane {
-
 	private static final String IMAGE_NAME = "bossplane.png";
 	private static final double INITIAL_X_POSITION = 1000.0;
 	private static final double INITIAL_Y_POSITION = 400;
@@ -24,6 +24,7 @@ public class Boss extends FighterPlane {
 	private int consecutiveMovesInSameDirection;
 	private int indexOfCurrentMove;
 	private int framesWithShieldActivated;
+	private final Rectangle hitbox;
 
 	public Boss() {
 		super(IMAGE_NAME, IMAGE_HEIGHT, INITIAL_X_POSITION, INITIAL_Y_POSITION, HEALTH);
@@ -33,6 +34,7 @@ public class Boss extends FighterPlane {
 		framesWithShieldActivated = 0;
 		isShielded = false;
 		initializeMovePattern();
+		hitbox = new Rectangle(INITIAL_X_POSITION, INITIAL_Y_POSITION, 200, IMAGE_HEIGHT);
 	}
 
 	@Override
@@ -43,6 +45,7 @@ public class Boss extends FighterPlane {
 		if (currentPosition < Y_POSITION_UPPER_BOUND || currentPosition > Y_POSITION_LOWER_BOUND) {
 			setTranslateY(initialTranslateY);
 		}
+		updateHitbox();
 	}
 	
 	@Override
@@ -117,4 +120,13 @@ public class Boss extends FighterPlane {
 		framesWithShieldActivated = 0;
 	}
 
+	private void updateHitbox() {
+		hitbox.setX(getLayoutX() + getTranslateX());
+		hitbox.setY(getLayoutY() + getTranslateY());
+	}
+
+	@Override
+	public Rectangle getHitbox() {
+		return hitbox; //Defined and updated in Boss.java
+	}
 }
