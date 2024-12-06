@@ -16,13 +16,13 @@ public class UserPlane extends FighterPlane {
 	private int velocityMultiplier;
 	private int numberOfKills;
 	private final Rectangle hitbox;
-	private static final double HITBOX_X_OFFSET = 25.0;
-	private static final double HITBOX_Y_OFFSET = 25.0;
+	private static final double HITBOX_X_OFFSET = 10.0;
+	private static final double HITBOX_Y_OFFSET = 65.0;
 
 	public UserPlane(int initialHealth) {
 		super(IMAGE_NAME, IMAGE_HEIGHT, INITIAL_X_POSITION, INITIAL_Y_POSITION, initialHealth);
 		velocityMultiplier = 0;
-		hitbox = new Rectangle(INITIAL_X_POSITION, INITIAL_Y_POSITION, 50, 50);
+		hitbox = new Rectangle(INITIAL_X_POSITION, INITIAL_Y_POSITION, 150, 20);
 	}
 	
 	@Override

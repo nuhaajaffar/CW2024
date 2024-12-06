@@ -12,7 +12,7 @@ public class UserProjectile extends Projectile {
 
 	public UserProjectile(double initialXPos, double initialYPos) {
 		super(IMAGE_NAME, IMAGE_HEIGHT, initialXPos, initialYPos);
-		hitbox = new Rectangle(initialXPos, initialYPos, 50, 50);
+		hitbox = new Rectangle(initialXPos, initialYPos, 25, 30);
 	}
 
 	@Override

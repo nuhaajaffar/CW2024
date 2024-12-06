@@ -8,8 +8,8 @@ public class LevelView {
 	private static final double HEART_DISPLAY_Y_POSITION = 25;
 	private static final int WIN_IMAGE_X_POSITION = 355;
 	private static final int WIN_IMAGE_Y_POSITION = 175;
-	private static final int LOSS_SCREEN_X_POSITION = -160;
-	private static final int LOSS_SCREEN_Y_POSISITION = -375;
+	private static final int LOSS_SCREEN_X_POSITION = -35;
+	private static final int LOSS_SCREEN_Y_POSISITION = -310;
 	private final Group root;
 	private final WinImage winImage;
 	private final GameOverImage gameOverImage;
@@ -31,8 +31,10 @@ public class LevelView {
 		winImage.showWinImage();
 	}
 	
-	public void showGameOverImage() {
+	public void showGameOverImage(double scaleX, double scaleY) {
 		root.getChildren().add(gameOverImage);
+		gameOverImage.setScaleX(scaleX);
+		gameOverImage.setScaleY(scaleY);
 	}
 	
 	public void removeHearts(int heartsRemaining) {

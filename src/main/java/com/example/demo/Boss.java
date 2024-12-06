@@ -26,6 +26,7 @@ public class Boss extends FighterPlane {
 	private int indexOfCurrentMove;
 	private int framesWithShieldActivated;
 	private final Rectangle hitbox;
+	private static final double HITBOX_Y_OFFSET = 80.0;
 
 	public Boss() {
 		super(IMAGE_NAME, IMAGE_HEIGHT, INITIAL_X_POSITION, INITIAL_Y_POSITION, HEALTH);
@@ -35,7 +36,7 @@ public class Boss extends FighterPlane {
 		framesWithShieldActivated = 0;
 		isShielded = false;
 		initializeMovePattern();
-		hitbox = new Rectangle(INITIAL_X_POSITION, INITIAL_Y_POSITION, 200, IMAGE_HEIGHT);
+		hitbox = new Rectangle(INITIAL_X_POSITION, INITIAL_Y_POSITION, 200, 80);
 	}
 
 	@Override
@@ -128,6 +129,6 @@ public class Boss extends FighterPlane {
 
 	private void updateHitbox() {
 		hitbox.setX(getLayoutX() + getTranslateX());
-		hitbox.setY(getLayoutY() + getTranslateY());
+		hitbox.setY(getLayoutY() + getTranslateY() + HITBOX_Y_OFFSET);
 	}
 }
