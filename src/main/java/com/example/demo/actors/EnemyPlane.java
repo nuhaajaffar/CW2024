@@ -1,5 +1,7 @@
-package com.example.demo;
+package com.example.demo.actors;
 
+import com.example.demo.destructibles.ActiveActorDestructible;
+import com.example.demo.projectiles.EnemyProjectile;
 import javafx.scene.shape.Rectangle;
 
 public class EnemyPlane extends FighterPlane {

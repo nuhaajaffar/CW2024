@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.projectiles;
 
 import javafx.scene.shape.Rectangle;
 

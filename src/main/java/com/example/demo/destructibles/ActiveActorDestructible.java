@@ -1,5 +1,7 @@
-package com.example.demo;
+package com.example.demo.destructibles;
 
+import com.example.demo.actors.ActiveActor;
+import com.example.demo.destructibles.Destructible;
 import javafx.scene.shape.Rectangle;
 
 public abstract class ActiveActorDestructible extends ActiveActor implements Destructible {

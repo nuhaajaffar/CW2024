@@ -1,6 +1,9 @@
-package com.example.demo;
+package com.example.demo.actors;
 
 import java.util.*;
+
+import com.example.demo.destructibles.ActiveActorDestructible;
+import com.example.demo.projectiles.BossProjectile;
 import javafx.scene.shape.Rectangle;
 
 public class BossPlane extends FighterPlane {
@@ -105,19 +108,19 @@ public class BossPlane extends FighterPlane {
 		return getLayoutY() + getTranslateY() + PROJECTILE_Y_POSITION_OFFSET;
 	}
 
-	private boolean shieldShouldBeActivated() {
+	public boolean shieldShouldBeActivated() {
 		return Math.random() < BOSS_SHIELD_PROBABILITY;
 	}
 
-	private boolean shieldExhausted() {
+	public boolean shieldExhausted() {
 		return framesWithShieldActivated == MAX_FRAMES_WITH_SHIELD;
 	}
 
-	private void activateShield() {
+	public void activateShield() {
 		isShielded = true;
 	}
 
-	private void deactivateShield() {
+	public void deactivateShield() {
 		isShielded = false;
 		framesWithShieldActivated = 0;
 	}
