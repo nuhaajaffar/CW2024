@@ -1,5 +1,5 @@
 ## GitHub Repository
-[Link to My Repository](<https://github.com/nuhaajaffar/CW2024.git>)
+[CW2024 - Nuhaa Jaffar](<https://github.com/nuhaajaffar/CW2024.git>)
 
 ---
 
