@@ -174,7 +174,7 @@ public abstract class LevelParent extends Observable {
 
 	private void pauseGame() {
 		isPaused = true;
-		timeline.stop();
+		timeline.pause();
 		goToMenu("PauseMenu");
 	}
 

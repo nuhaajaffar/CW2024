@@ -17,6 +17,8 @@ public class Controller implements Observer {
 
 	private static final String MENU = "com.example.demo.menus.Menu";
 	private final Stage stage;
+	private LevelParent currentLevel;
+
 
 	public Controller(Stage stage) {
 		this.stage = stage;
@@ -45,8 +47,16 @@ public class Controller implements Observer {
 			InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		System.out.println("Going to menu " + menuClassName);
 		Class<?> myClass = Class.forName(menuClassName);
-		Constructor<?> constructor = myClass.getConstructor(Stage.class, double.class, double.class);
-		MenuParent myMenu = (MenuParent) constructor.newInstance(stage, stage.getWidth(), stage.getHeight());
+		Constructor<?> constructor;
+		MenuParent myMenu;
+		if (menuClassName.equals("com.example.demo.menus.PauseMenu")) {
+			constructor = myClass.getConstructor(Stage.class, double.class, double.class, LevelParent.class);
+			myMenu = (MenuParent) constructor.newInstance(stage, stage.getWidth(), stage.getHeight(), currentLevel);
+		}
+		else {
+			constructor = myClass.getConstructor(Stage.class, double.class, double.class);
+			myMenu = (MenuParent) constructor.newInstance(stage, stage.getWidth(), stage.getHeight());
+		}
 		myMenu.addObserver(this);
 		Scene scene = myMenu.initializeScene();
 		stage.setScene(scene);
