@@ -3,7 +3,6 @@ package com.example.demo.projectiles;
 import javafx.scene.shape.Rectangle;
 
 public class EnemyProjectile extends Projectile {
-	
 	private static final String IMAGE_NAME = "enemyFire.png";
 	private static final int IMAGE_HEIGHT = 40;
 	private static final int HORIZONTAL_VELOCITY = -10;

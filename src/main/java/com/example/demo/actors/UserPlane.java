@@ -2,11 +2,9 @@ package com.example.demo.actors;
 
 import com.example.demo.destructibles.ActiveActorDestructible;
 import com.example.demo.projectiles.UserProjectile;
-
 import javafx.scene.shape.Rectangle;
 
 public class UserPlane extends FighterPlane {
-
 	private static final String IMAGE_NAME = "userplane.png";
 	private static final double Y_UPPER_BOUND = 25;
 	private static final double Y_LOWER_BOUND = 600.0;
@@ -53,7 +51,6 @@ public class UserPlane extends FighterPlane {
 		if (newPositionY < Y_UPPER_BOUND || newPositionY > Y_LOWER_BOUND) {
 			this.setTranslateY(initialTranslateY);
 		}
-
 		if (isMovingHorizontally()) {
 			horizontalVelocity += ACCELERATION * horizontalVelocityMultiplier;
 			horizontalVelocity = Math.max(-HORIZONTAL_VELOCITY, Math.min(horizontalVelocity, HORIZONTAL_VELOCITY));
@@ -68,7 +65,6 @@ public class UserPlane extends FighterPlane {
 		if (newXPosition >= 0 && newXPosition <= getMaxXPosition()) {
 			moveHorizontally(horizontalVelocity);
 		}
-
 		updateHitbox();
 	}
 	
@@ -103,6 +99,7 @@ public class UserPlane extends FighterPlane {
 	public void moveLeft() {
 		horizontalVelocityMultiplier = -1;
 	}
+
 	public void moveRight() {
 		horizontalVelocityMultiplier = 1;
 	}

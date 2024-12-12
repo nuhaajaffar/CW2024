@@ -2,7 +2,6 @@ package com.example.demo.levels;
 
 import java.util.*;
 import java.util.stream.Collectors;
-
 import com.example.demo.destructibles.ActiveActorDestructible;
 import com.example.demo.actors.UserPlane;
 import javafx.util.Duration;
@@ -15,39 +14,29 @@ import javafx.scene.input.*;
 import com.example.demo.actors.FighterPlane;
 
 public abstract class LevelParent extends Observable {
-
 	private static final double SCREEN_HEIGHT_ADJUSTMENT = 150;
 	private static final int MILLISECOND_DELAY = 50;
 	private final double screenHeight;
 	private final double screenWidth;
 	private final double enemyMaximumYPosition;
-
 	private final Group root;
 	protected final Timeline timeline;
 	protected final UserPlane user;
 	private final Scene scene;
 	private final ImageView background;
-
 	private final List<ActiveActorDestructible> friendlyUnits;
 	private final List<ActiveActorDestructible> enemyUnits;
 	private final List<ActiveActorDestructible> userProjectiles;
 	private final List<ActiveActorDestructible> enemyProjectiles;
-
 	private int currentNumberOfEnemies;
 	private LevelView levelView;
 	private final LevelViewBoss levelViewBoss;
-
 	private boolean isPaused = false;
-
 	protected abstract void initializeFriendlyUnits();
-
 	protected abstract void checkIfGameOver();
-
 	protected abstract void spawnEnemyUnits();
-
 	protected abstract LevelView instantiateLevelView();
 	protected abstract LevelViewBoss instantiateLevelViewBoss();
-
 
 	public LevelParent(String backgroundImageName, double screenHeight, double screenWidth, int playerInitialHealth) {
 		this.root = new Group();
@@ -58,7 +47,6 @@ public abstract class LevelParent extends Observable {
 		this.enemyUnits = new ArrayList<>();
 		this.userProjectiles = new ArrayList<>();
 		this.enemyProjectiles = new ArrayList<>();
-
 		this.background = new ImageView(new Image(getClass().getResource(backgroundImageName).toExternalForm()));
 		this.screenHeight = screenHeight;
 		this.screenWidth = screenWidth;
@@ -71,13 +59,11 @@ public abstract class LevelParent extends Observable {
 		friendlyUnits.add(user);
 	}
 
-
 	public void goToMenu(String menuName) {
 		setChanged();
 		notifyObservers(menuName);
 		timeline.stop();
 	}
-
 
 	public Scene initializeScene() {
 		initializeBackground();
@@ -139,9 +125,7 @@ public abstract class LevelParent extends Observable {
 				if (kc == KeyCode.LEFT || kc == KeyCode.A) user.moveLeft();
 				if (kc == KeyCode.RIGHT || kc == KeyCode.D) user.moveRight();
 				if (kc == KeyCode.SPACE) fireProjectile();
-
 				if (kc == KeyCode.P) togglePause();
-
 			}
 		});
 		background.setOnKeyReleased(new EventHandler<KeyEvent>() {

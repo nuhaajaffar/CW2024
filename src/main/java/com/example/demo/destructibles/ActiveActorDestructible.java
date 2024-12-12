@@ -5,7 +5,6 @@ import com.example.demo.destructibles.Destructible;
 import javafx.scene.shape.Rectangle;
 
 public abstract class ActiveActorDestructible extends ActiveActor implements Destructible {
-
 	private boolean isDestroyed;
 
 	public ActiveActorDestructible(String imageName, int imageHeight, double initialXPos, double initialYPos) {

@@ -5,7 +5,6 @@ import com.example.demo.projectiles.EnemyProjectile;
 import javafx.scene.shape.Rectangle;
 
 public class EnemyPlane extends FighterPlane {
-
 	private static final String IMAGE_NAME = "enemyplane.png";
 	private static final int IMAGE_HEIGHT = 150;
 	private static final int HORIZONTAL_VELOCITY = -6;
@@ -47,6 +46,7 @@ public class EnemyPlane extends FighterPlane {
 	public Rectangle getHitbox() {
 		return hitbox;
 	}
+
 	private void updateHitbox() {
 		hitbox.setX(getLayoutX() + getTranslateX() + HITBOX_X_OFFSET);
 		hitbox.setY(getLayoutY() + getTranslateY()+ HITBOX_Y_OFFSET);

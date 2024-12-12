@@ -3,7 +3,6 @@ package com.example.demo.projectiles;
 import javafx.scene.shape.Rectangle;
 
 public class BossProjectile extends Projectile {
-	
 	private static final String IMAGE_NAME = "fireball.png";
 	private static final int IMAGE_HEIGHT = 65;
 	private static final int HORIZONTAL_VELOCITY = -15;
@@ -31,6 +30,7 @@ public class BossProjectile extends Projectile {
 	public Rectangle getHitbox() {
 		return hitbox;
 	}
+
 	private void updateHitbox() {
 		hitbox.setX(getLayoutX() + getTranslateX());
 		hitbox.setY(getLayoutY() + getTranslateY()+HITBOX_Y_OFFSET);

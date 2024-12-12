@@ -8,7 +8,6 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 public class LevelFour extends LevelParent {
-
     private static final String BACKGROUND_IMAGE_NAME = "/com/example/demo/images/background2.jpg";
     private static final int PLAYER_INITIAL_HEALTH = 5;
     private final BossPlane boss;
@@ -85,6 +84,7 @@ public class LevelFour extends LevelParent {
             shieldImage.setTranslateY(boss.getTranslateY() + offsetY);
         }
     }
+
     @Override
     protected void updateScene() {
         super.updateScene();
@@ -99,6 +99,7 @@ public class LevelFour extends LevelParent {
             shieldText.setFill(Color.RED);
             updateShieldPosition();
         }
+
         if (boss.getFramesWithShieldActivated()==0) {
             getRoot().getChildren().remove(shieldImage);
             shieldImage.hideShield();

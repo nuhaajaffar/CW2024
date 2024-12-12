@@ -1,13 +1,11 @@
 package com.example.demo.actors;
 
 import java.util.*;
-
 import com.example.demo.destructibles.ActiveActorDestructible;
 import com.example.demo.projectiles.BossProjectile;
 import javafx.scene.shape.Rectangle;
 
 public class BossPlane extends FighterPlane {
-
 	private static final String IMAGE_NAME = "bossplane.png";
 	private static final double INITIAL_X_POSITION = 1000.0;
 	private static final double INITIAL_Y_POSITION = 400;
@@ -16,7 +14,7 @@ public class BossPlane extends FighterPlane {
 	private static final double BOSS_SHIELD_PROBABILITY = 0.002;
 	private static final int IMAGE_HEIGHT = 300;
 	private static final int VERTICAL_VELOCITY = 8;
-	private static final int HEALTH = 1;
+	private static final int HEALTH = 50;
 	private static final int MOVE_FREQUENCY_PER_CYCLE = 5;
 	private static final int ZERO = 0;
 	private static final int MAX_FRAMES_WITH_SAME_MOVE = 10;
@@ -128,6 +126,7 @@ public class BossPlane extends FighterPlane {
 	public int getFramesWithShieldActivated() {
 		return framesWithShieldActivated;
 	}
+
 	public boolean isShielded() {
 		return isShielded;
 	}

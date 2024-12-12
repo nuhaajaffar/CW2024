@@ -3,7 +3,6 @@ package com.example.demo.actors;
 import com.example.demo.destructibles.ActiveActorDestructible;
 
 public abstract class FighterPlane extends ActiveActorDestructible {
-
 	private int health;
 
 	public FighterPlane(String imageName, int imageHeight, double initialXPos, double initialYPos, int health) {
@@ -36,5 +35,4 @@ public abstract class FighterPlane extends ActiveActorDestructible {
 	public int getHealth() {
 		return health;
 	}
-		
 }

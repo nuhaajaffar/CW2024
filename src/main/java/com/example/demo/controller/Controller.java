@@ -4,7 +4,6 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Observable;
 import java.util.Observer;
-
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -14,11 +13,9 @@ import com.example.demo.menus.MenuParent;
 import com.example.demo.menus.Menu;
 
 public class Controller implements Observer {
-
 	private static final String MENU = "com.example.demo.menus.Menu";
 	private final Stage stage;
 	private LevelParent currentLevel;
-
 
 	public Controller(Stage stage) {
 		this.stage = stage;
@@ -26,7 +23,6 @@ public class Controller implements Observer {
 
 	public void launchGame() throws ClassNotFoundException, NoSuchMethodException, SecurityException,
 			InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException  {
-
 		stage.show();
 		goToMenu(MENU);
 
@@ -81,5 +77,4 @@ public class Controller implements Observer {
 			alert.show();
 		}
 	}
-
 }
