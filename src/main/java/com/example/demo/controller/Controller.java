@@ -4,77 +4,122 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Observable;
 import java.util.Observer;
+
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
+
 import com.example.demo.levels.LevelParent;
 import com.example.demo.menus.MenuParent;
-import com.example.demo.menus.Menu;
 
+/**
+ * The Controller class handles game navigation, transitions between game states,
+ * and menu interactions. It implements Observer to monitor changes or events
+ * triggered by menus or game levels.
+ */
 public class Controller implements Observer {
-	private static final String MENU = "com.example.demo.menus.Menu";
+
+	private static final String MENU_CLASS_NAME = "com.example.demo.menus.Menu";
 	private final Stage stage;
 	private LevelParent currentLevel;
 
+	/**
+	 * Constructs a new Controller object, initializing the application window stage.
+	 *
+	 * @param stage The main application window's stage used for UI rendering.
+	 */
 	public Controller(Stage stage) {
 		this.stage = stage;
 	}
 
-	public void launchGame() throws ClassNotFoundException, NoSuchMethodException, SecurityException,
-			InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException  {
+	/**
+	 * Launches the game by displaying the initial menu scene.
+	 * Sets up the game state and menu navigation.
+	 *
+	 * @throws Exception Various exceptions that can arise during reflection.
+	 */
+	public void launchGame() throws Exception {
 		stage.show();
-		goToMenu(MENU);
-
+		goToMenu(MENU_CLASS_NAME);
 	}
 
-	private void goToLevel(String className) throws ClassNotFoundException, NoSuchMethodException, SecurityException,
-			InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
-		Class<?> myClass = Class.forName(className);
-		Constructor<?> constructor = myClass.getConstructor(Stage.class, double.class, double.class);
-		LevelParent myLevel = (LevelParent) constructor.newInstance(stage, stage.getHeight(), stage.getWidth());
-		myLevel.addObserver(this);
-		Scene scene = myLevel.initializeScene();
+	/**
+	 * Dynamically loads and transitions to a specific game level using reflection.
+	 *
+	 * @param className Full class name of the level to load.
+	 * @throws Exception Any exception encountered during dynamic class loading.
+	 */
+	private void goToLevel(String className) throws Exception {
+		Class<?> levelClass = Class.forName(className);
+		Constructor<?> constructor = levelClass.getConstructor(Stage.class, double.class, double.class);
+
+		LevelParent levelInstance = (LevelParent) constructor.newInstance(stage, stage.getHeight(), stage.getWidth());
+		levelInstance.addObserver(this);
+
+		Scene scene = levelInstance.initializeScene();
 		stage.setScene(scene);
-		myLevel.startGame();
+		levelInstance.startGame();
 	}
 
-	private void goToMenu(String menuClassName) throws ClassNotFoundException, NoSuchMethodException, SecurityException,
-			InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
-		System.out.println("Going to menu " + menuClassName);
-		Class<?> myClass = Class.forName(menuClassName);
+	/**
+	 * Dynamically loads and transitions to a specific menu system.
+	 * Handles logic based on menu type (e.g., PauseMenu, MainMenu).
+	 *
+	 * @param menuClassName Full class name of the menu to load.
+	 * @throws Exception Various exceptions encountered during reflection.
+	 */
+	private void goToMenu(String menuClassName) throws Exception {
+		System.out.println("Loading menu: " + menuClassName);
+
+		Class<?> menuClass = Class.forName(menuClassName);
 		Constructor<?> constructor;
-		MenuParent myMenu;
-		if (menuClassName.equals("com.example.demo.menus.PauseMenu")) {
-			constructor = myClass.getConstructor(Stage.class, double.class, double.class, LevelParent.class);
-			myMenu = (MenuParent) constructor.newInstance(stage, stage.getWidth(), stage.getHeight(), currentLevel);
+
+		MenuParent menuInstance;
+		if ("com.example.demo.menus.PauseMenu".equals(menuClassName)) {
+			constructor = menuClass.getConstructor(Stage.class, double.class, double.class, LevelParent.class);
+			menuInstance = (MenuParent) constructor.newInstance(stage, stage.getWidth(), stage.getHeight(), currentLevel);
+		} else {
+			constructor = menuClass.getConstructor(Stage.class, double.class, double.class);
+			menuInstance = (MenuParent) constructor.newInstance(stage, stage.getWidth(), stage.getHeight());
 		}
-		else {
-			constructor = myClass.getConstructor(Stage.class, double.class, double.class);
-			myMenu = (MenuParent) constructor.newInstance(stage, stage.getWidth(), stage.getHeight());
-		}
-		myMenu.addObserver(this);
-		Scene scene = myMenu.initializeScene();
+
+		menuInstance.addObserver(this);
+		Scene scene = menuInstance.initializeScene();
 		stage.setScene(scene);
 	}
 
+	/**
+	 * Handles updates triggered by observed subjects (e.g., menu buttons or game events).
+	 * Dynamically determines if the update corresponds to a menu or game level change.
+	 *
+	 * @param observable The source of the event (menu/level).
+	 * @param arg The argument passed during the notification (name of menu/level).
+	 */
 	@Override
-	public void update(Observable arg0, Object arg1) {
-		String Name = (String) arg1;
-		System.out.println("Transitioning to " + Name);
+	public void update(Observable observable, Object arg) {
+		String name = (String) arg;
+		System.out.println("Received transition request to: " + name);
+
 		try {
-			if (Name.contains("Menu")) {
-				goToMenu("com.example.demo.menus." + Name);
+			if (name.contains("Menu")) {
+				goToMenu("com.example.demo.menus." + name);
+			} else {
+				goToLevel("com.example.demo.levels." + name);
 			}
-			else {
-				goToLevel("com.example.demo.levels." + Name);
-			}
+		} catch (Exception e) {
+			showErrorAlert(e);
 		}
-		catch (ClassNotFoundException | NoSuchMethodException | SecurityException | InstantiationException
-				  | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
-			Alert alert = new Alert(AlertType.ERROR);
-			alert.setContentText(e.getClass().toString());
-			alert.show();
-		}
+	}
+
+	/**
+	 * Displays an error alert if an exception occurs during a transition.
+	 *
+	 * @param e The exception to show in the alert.
+	 */
+	private void showErrorAlert(Exception e) {
+		Alert alert = new Alert(AlertType.ERROR);
+		alert.setContentText("An error occurred: " + e.getClass().getSimpleName());
+		alert.show();
 	}
 }
