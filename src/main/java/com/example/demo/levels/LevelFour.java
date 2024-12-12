@@ -29,7 +29,7 @@ public class LevelFour extends LevelParent {
         bosshealthText = new Text("BOSS HEALTH: " + boss.getHealth());
         bosshealthText.setFill(Color.DARKRED);
         bosshealthText.setStyle("-fx-font-size: 27;");
-        bosshealthText.setX(getScreenWidth() - 225);
+        bosshealthText.setX(getScreenWidth() - 240);
         bosshealthText.setY(40);
         getRoot().getChildren().add(bosshealthText);
 

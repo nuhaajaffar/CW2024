@@ -46,7 +46,7 @@ public class LevelThree extends LevelParent {
         killCountText = new Text("KILLCOUNT: " + user.getNumberOfKills());
         killCountText.setFill(Color.BLACK);
         killCountText.setStyle("-fx-font-size: 27;");
-        killCountText.setX(getScreenWidth() - 200);
+        killCountText.setX(getScreenWidth() - 210);
         killCountText.setY(75);
         getRoot().getChildren().add(killCountText);
 
