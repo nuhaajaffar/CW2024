@@ -18,8 +18,12 @@ public class Main extends Application {
 		stage.setHeight(SCREEN_HEIGHT);
 		stage.setWidth(SCREEN_WIDTH);
 		myController = new Controller(stage);
-		myController.launchGame();
-	}
+        try {
+            myController.launchGame();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 	public static void main(String[] args) {
 		launch();
