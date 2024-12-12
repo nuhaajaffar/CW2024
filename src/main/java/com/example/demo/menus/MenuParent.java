@@ -13,7 +13,6 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 
 public abstract class MenuParent extends Observable {
-
     public final Stage stage;
     private final Group root;
     private final Timeline timeline;
@@ -22,7 +21,6 @@ public abstract class MenuParent extends Observable {
     protected final double screenWidth;
     protected final double screenHeight;
     private boolean isPaused = false;
-
 
     public MenuParent(Stage stage, String backgroundImageName, double screenHeight, double screenWidth) {
         this.stage = stage;
@@ -59,7 +57,6 @@ public abstract class MenuParent extends Observable {
     private void initializeBackground() {
         background.setFocusTraversable(true);
         background.setPreserveRatio(true);
-
 
         root.getChildren().add(background);
     }
