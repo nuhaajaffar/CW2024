@@ -31,9 +31,8 @@ public class BossProjectile extends Projectile {
 	public Rectangle getHitbox() {
 		return hitbox;
 	}
-
 	private void updateHitbox() {
 		hitbox.setX(getLayoutX() + getTranslateX());
-		hitbox.setY(getLayoutY() + getTranslateY() + HITBOX_Y_OFFSET);
+		hitbox.setY(getLayoutY() + getTranslateY()+HITBOX_Y_OFFSET);
 	}
 }

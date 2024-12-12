@@ -37,9 +37,6 @@ public class LevelTwo extends LevelParent {
 	protected void spawnEnemyUnits() {
 		if (getCurrentNumberOfEnemies() == 0) {
 			addEnemyUnit(boss);
-			boss.activateShield();
-			getRoot().getChildren().add(shieldImage);
-			shieldImage.showShield();
 		}
 	}
 

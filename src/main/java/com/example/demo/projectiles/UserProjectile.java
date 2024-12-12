@@ -21,7 +21,7 @@ public class UserProjectile extends Projectile {
 		moveHorizontally(HORIZONTAL_VELOCITY);
 		updateHitbox();
 	}
-	
+
 	@Override
 	public void updateActor() {
 		updatePosition();

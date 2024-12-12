@@ -30,9 +30,8 @@ public class EnemyProjectile extends Projectile {
 	public Rectangle getHitbox() {
 		return hitbox;
 	}
-
 	private void updateHitbox() {
 		hitbox.setX(getLayoutX() + getTranslateX());
-		hitbox.setX(getLayoutY() + getTranslateY());
+		hitbox.setY(getLayoutY() + getTranslateY());
 	}
 }

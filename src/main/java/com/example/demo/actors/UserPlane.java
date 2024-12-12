@@ -120,14 +120,13 @@ public class UserPlane extends FighterPlane {
 		numberOfKills++;
 	}
 
+	private void updateHitbox() {
+		hitbox.setX(getLayoutX() + getTranslateX()+HITBOX_X_OFFSET);
+		hitbox.setY(getLayoutY() + getTranslateY()+ HITBOX_Y_OFFSET);
+	}
 	@Override
 	public Rectangle getHitbox() {
 		return hitbox;
-	}
-
-	private void updateHitbox() {
-		hitbox.setX(getLayoutX() + getTranslateX() + HITBOX_X_OFFSET);
-		hitbox.setX(getLayoutY() + getTranslateY() + HITBOX_Y_OFFSET);
 	}
 
 	private double getMaxXPosition() {

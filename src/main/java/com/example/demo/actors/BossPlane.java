@@ -132,13 +132,13 @@ public class BossPlane extends FighterPlane {
 		return isShielded;
 	}
 
-	@Override
-	public Rectangle getHitbox() {
-		return hitbox;
-	}
-
 	private void updateHitbox() {
 		hitbox.setX(getLayoutX() + getTranslateX());
 		hitbox.setY(getLayoutY() + getTranslateY() + HITBOX_Y_OFFSET);
+	}
+
+	@Override
+	public Rectangle getHitbox() {
+		return hitbox;
 	}
 }

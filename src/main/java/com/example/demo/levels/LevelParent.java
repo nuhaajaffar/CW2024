@@ -24,7 +24,7 @@ public abstract class LevelParent extends Observable {
 
 	private final Group root;
 	protected final Timeline timeline;
-	private final UserPlane user;
+	protected final UserPlane user;
 	private final Scene scene;
 	private final ImageView background;
 
@@ -227,12 +227,10 @@ public abstract class LevelParent extends Observable {
 		handleCollisions(enemyProjectiles, friendlyUnits);
 	}
 
-	private void handleCollisions(List<ActiveActorDestructible> actors1,
-								  List<ActiveActorDestructible> actors2) {
+	private void handleCollisions(List<ActiveActorDestructible> actors1, List<ActiveActorDestructible> actors2) {
 		for (ActiveActorDestructible actor : actors2) {
 			for (ActiveActorDestructible otherActor : actors1) {
-				if (actor.getHitbox().intersects(otherActor.getHitbox().getBoundsInParent())) {
-					actor.takeDamage();
+				if (actor.getHitbox().intersects(otherActor.getHitbox().getBoundsInParent())) {					actor.takeDamage();
 					otherActor.takeDamage();
 				}
 			}
@@ -252,7 +250,7 @@ public abstract class LevelParent extends Observable {
 		levelView.removeHearts(user.getHealth());
 	}
 
-	private void updateKillCount() {
+	protected void updateKillCount() {
 		for (int i = 0; i < currentNumberOfEnemies - enemyUnits.size(); i++) {
 			user.incrementKillCount();
 		}
@@ -264,11 +262,13 @@ public abstract class LevelParent extends Observable {
 
 	protected void winGame() {
 		timeline.stop();
+		root.getChildren().clear();
 		goToMenu("WinMenu");
 	}
 
 	protected void loseGame() {
 		timeline.stop();
+		root.getChildren().clear();
 		goToMenu("GameOverMenu");
 
 	}
