@@ -1,7 +1,7 @@
 package com.example.demo.levels;
 
-import com.example.demo.actors.BossPlane;
-import com.example.demo.ui.ShieldImage;
+import com.example.demo.destructibles.ActiveActorDestructible;
+import com.example.demo.actors.EnemyPlane;
 import javafx.stage.Stage;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -9,60 +9,65 @@ import javafx.scene.text.Text;
 
 public class LevelTwo extends LevelParent {
 
-	private static final String BACKGROUND_IMAGE_NAME = "/com/example/demo/images/background2.jpg";
+	private static final String BACKGROUND_IMAGE_NAME = "/com/example/demo/images/background1.jpg";
+	private static final int TOTAL_ENEMIES = 5;
+	private static final int KILLS_TO_ADVANCE = 1;
+	private static final double ENEMY_SPAWN_PROBABILITY = .20;
 	private static final int PLAYER_INITIAL_HEALTH = 5;
-	private final BossPlane boss;
-	private LevelViewBoss levelViewBoss;
-	private ShieldImage shieldImage;
-	private Text bosshealthText;
-	private Text shieldText;
+	private Text killProText;
+	private Text killCountText;
 	private Text levelTwoText;
 
 	public LevelTwo(Stage stage, double screenHeight, double screenWidth) {
 		super(BACKGROUND_IMAGE_NAME, screenHeight, screenWidth, PLAYER_INITIAL_HEALTH);
-		boss = new BossPlane();
-		shieldImage = new ShieldImage(boss.getLayoutX(), boss.getLayoutY());
-	}
-
-	@Override
-	protected void initializeFriendlyUnits() {
-		getRoot().getChildren().add(getUser());
-		bosshealthText = new Text("BOSS HEALTH: " + boss.getHealth());
-		bosshealthText.setFill(Color.DARKRED);
-		bosshealthText.setStyle("-fx-font-size: 27;");
-		bosshealthText.setX(getScreenWidth() - 225);
-		bosshealthText.setY(40);
-		getRoot().getChildren().add(bosshealthText);
-
-		shieldText = new Text();
-		shieldText.setFill(Color.BLACK);
-		shieldText.setStyle("-fx-font-size: 27;");
-		shieldText.setX(getScreenWidth() - 270);
-		shieldText.setY(75);
-		getRoot().getChildren().add(shieldText);
-
-		levelTwoText = new Text("LEVEL 2");
-		levelTwoText.setFill(Color.BLACK);
-		levelTwoText.setStyle("-fx-font-size: 35;");
-		levelTwoText.setX((getScreenWidth() /2) - 65);
-		levelTwoText.setY(50);
-		getRoot().getChildren().add(levelTwoText);
 	}
 
 	@Override
 	protected void checkIfGameOver() {
 		if (userIsDestroyed()) {
 			loseGame();
+			timeline.stop();
 		}
-		else if (boss.isDestroyed()) {
-			winGame();
+		else if (userHasReachedKillTarget()) {
+			timeline.stop();
+			goToNextLevel("LevelThree");
 		}
 	}
 
 	@Override
+	protected void initializeFriendlyUnits() {
+		getRoot().getChildren().add(getUser());
+		killProText = new Text("KILL TO PROCEED: 20");
+		killProText.setFill(Color.GREEN);
+		killProText.setStyle("-fx-font-size: 27;");
+		killProText.setX(getScreenWidth() - 285);
+		killProText.setY(40);
+		getRoot().getChildren().add(killProText);
+
+		killCountText = new Text("KILLCOUNT: " + user.getNumberOfKills());
+		killCountText.setFill(Color.BLACK);
+		killCountText.setStyle("-fx-font-size: 27;");
+		killCountText.setX(getScreenWidth() - 200);
+		killCountText.setY(75);
+		getRoot().getChildren().add(killCountText);
+
+		levelTwoText = new Text("LEVEL 2");
+		levelTwoText.setFill(Color.BLACK);
+		levelTwoText.setStyle("-fx-font-size: 35;");
+		levelTwoText.setX((getScreenWidth() /2) - 65 );
+		levelTwoText.setY(50);
+		getRoot().getChildren().add(levelTwoText);
+	}
+
+	@Override
 	protected void spawnEnemyUnits() {
-		if (getCurrentNumberOfEnemies() == 0) {
-			addEnemyUnit(boss);
+		int currentNumberOfEnemies = getCurrentNumberOfEnemies();
+		for (int i = 0; i < TOTAL_ENEMIES - currentNumberOfEnemies; i++) {
+			if (Math.random() < ENEMY_SPAWN_PROBABILITY) {
+				double newEnemyInitialYPosition = Math.random() * getEnemyMaximumYPosition();
+				ActiveActorDestructible newEnemy = new EnemyPlane(getScreenWidth(), newEnemyInitialYPosition);
+				addEnemyUnit(newEnemy);
+			}
 		}
 	}
 
@@ -73,41 +78,16 @@ public class LevelTwo extends LevelParent {
 
 	@Override
 	protected LevelViewBoss instantiateLevelViewBoss() {
-		levelViewBoss = new LevelViewBoss(getRoot(), PLAYER_INITIAL_HEALTH);
-		return levelViewBoss;
+		return null;
 	}
 
-	private void updateShieldPosition() {
-		if (!boss.shieldExhausted()) {
-			double offsetX = -65;
-			double offsetY = 50;
-			shieldImage.setTranslateX(boss.getTranslateX() + offsetX);
-			shieldImage.setTranslateY(boss.getTranslateY() + offsetY);
-		}
+	private boolean userHasReachedKillTarget() {
+		return getUser().getNumberOfKills() >= KILLS_TO_ADVANCE;
 	}
+
 	@Override
-	protected void updateScene() {
-		super.updateScene();
-		bosshealthText.setText("BOSS HEALTH: " + boss.getHealth());
-		if (boss.isShielded()) {
-			shieldText.setText("SHIELD: Activated");
-			shieldText.setFill(Color.GREEN);
-			updateShieldPosition();
-		}
-		else {
-			shieldText.setText("SHIELD: Deactivated");
-			shieldText.setFill(Color.RED);
-			updateShieldPosition();
-		}
-		if (boss.getFramesWithShieldActivated()==0) {
-			getRoot().getChildren().remove(shieldImage);
-			shieldImage.hideShield();
-			boss.deactivateShield();
-		}
-		if (!boss.isShielded() && boss.shieldShouldBeActivated() && boss.getFramesWithShieldActivated()==0) {
-			boss.activateShield();
-			getRoot().getChildren().add(shieldImage);
-			shieldImage.showShield();
-		}
+	protected void updateKillCount() {
+		super.updateKillCount();
+		killCountText.setText("KILLCOUNT: " + user.getNumberOfKills()); // Update the display
 	}
 }
