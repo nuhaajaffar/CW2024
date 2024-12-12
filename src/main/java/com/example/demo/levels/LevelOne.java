@@ -2,17 +2,17 @@ package com.example.demo.levels;
 
 import com.example.demo.destructibles.ActiveActorDestructible;
 import com.example.demo.actors.EnemyPlane;
+import javafx.stage.Stage;
 
 public class LevelOne extends LevelParent {
 	
 	private static final String BACKGROUND_IMAGE_NAME = "/com/example/demo/images/background1.jpg";
-	private static final String NEXT_LEVEL = "com.example.demo.levels.LevelTwo";
 	private static final int TOTAL_ENEMIES = 5;
 	private static final int KILLS_TO_ADVANCE = 10;
 	private static final double ENEMY_SPAWN_PROBABILITY = .20;
 	private static final int PLAYER_INITIAL_HEALTH = 5;
 
-	public LevelOne(double screenHeight, double screenWidth) {
+	public LevelOne(Stage stage, double screenHeight, double screenWidth) {
 		super(BACKGROUND_IMAGE_NAME, screenHeight, screenWidth, PLAYER_INITIAL_HEALTH);
 	}
 
@@ -24,7 +24,7 @@ public class LevelOne extends LevelParent {
 		}
 		else if (userHasReachedKillTarget()) {
 			timeline.stop();
-			goToNextLevel(NEXT_LEVEL);
+			goToNextLevel("LevelTwo");
 		}
 	}
 
@@ -48,6 +48,11 @@ public class LevelOne extends LevelParent {
 	@Override
 	protected LevelView instantiateLevelView() {
 		return new LevelView(getRoot(), PLAYER_INITIAL_HEALTH);
+	}
+
+	@Override
+	protected LevelViewBoss instantiateLevelViewBoss() {
+		return null;
 	}
 
 	private boolean userHasReachedKillTarget() {

@@ -35,6 +35,19 @@ public abstract class LevelParent extends Observable {
 
 	private int currentNumberOfEnemies;
 	private LevelView levelView;
+	private final LevelViewBoss levelViewBoss;
+
+	private boolean isPaused = false;
+
+	protected abstract void initializeFriendlyUnits();
+
+	protected abstract void checkIfGameOver();
+
+	protected abstract void spawnEnemyUnits();
+
+	protected abstract LevelView instantiateLevelView();
+	protected abstract LevelViewBoss instantiateLevelViewBoss();
+
 
 	public LevelParent(String backgroundImageName, double screenHeight, double screenWidth, int playerInitialHealth) {
 		this.root = new Group();
@@ -51,18 +64,20 @@ public abstract class LevelParent extends Observable {
 		this.screenWidth = screenWidth;
 		this.enemyMaximumYPosition = screenHeight - SCREEN_HEIGHT_ADJUSTMENT;
 		this.levelView = instantiateLevelView();
+		this.levelViewBoss = instantiateLevelViewBoss();
 		this.currentNumberOfEnemies = 0;
+
 		initializeTimeline();
 		friendlyUnits.add(user);
 	}
 
-	protected abstract void initializeFriendlyUnits();
 
-	protected abstract void checkIfGameOver();
+	public void goToMenu(String menuName) {
+		setChanged();
+		notifyObservers(menuName);
+		timeline.stop();
+	}
 
-	protected abstract void spawnEnemyUnits();
-
-	protected abstract LevelView instantiateLevelView();
 
 	public Scene initializeScene() {
 		initializeBackground();
@@ -106,12 +121,25 @@ public abstract class LevelParent extends Observable {
 		background.setFocusTraversable(true);
 		background.setFitHeight(screenHeight);
 		background.setFitWidth(screenWidth);
+		root.getChildren().add(background);
+
+		if (!root.getChildren().contains(background)){
+			root.getChildren().add(background);
+		}
+
+		initializeControls();
+	}
+
+	private void initializeControls() {
 		background.setOnKeyPressed(new EventHandler<KeyEvent>() {
 			public void handle(KeyEvent e) {
 				KeyCode kc = e.getCode();
 				if (kc == KeyCode.UP) user.moveUp();
 				if (kc == KeyCode.DOWN) user.moveDown();
 				if (kc == KeyCode.SPACE) fireProjectile();
+
+				if (kc == KeyCode.P) togglePause();
+
 			}
 		});
 		background.setOnKeyReleased(new EventHandler<KeyEvent>() {
@@ -120,13 +148,31 @@ public abstract class LevelParent extends Observable {
 				if (kc == KeyCode.UP || kc == KeyCode.DOWN) user.stop();
 			}
 		});
-		root.getChildren().add(background);
 	}
 
 	private void fireProjectile() {
 		ActiveActorDestructible projectile = user.fireProjectile();
 		root.getChildren().add(projectile);
 		userProjectiles.add(projectile);
+	}
+
+	private void togglePause(){
+		if (isPaused){
+			resumeGame();
+		} else {
+			pauseGame();
+		}
+	}
+
+	private void pauseGame() {
+		isPaused = true;
+		timeline.stop();
+		goToMenu("PauseMenu");
+	}
+
+	private void resumeGame() {
+		isPaused = false;
+		timeline.play();
 	}
 
 	private void generateEnemyFire() {
@@ -210,12 +256,13 @@ public abstract class LevelParent extends Observable {
 
 	protected void winGame() {
 		timeline.stop();
-		levelView.showWinImage();
+		goToMenu("WinMenu");
 	}
 
 	protected void loseGame() {
 		timeline.stop();
-		levelView.showGameOverImage(0.5,0.5);
+		goToMenu("GameOverMenu");
+
 	}
 
 	protected UserPlane getUser() {

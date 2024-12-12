@@ -9,4 +9,5 @@ module com.example.demo {
     opens com.example.demo.projectiles to javafx.fxml;
     opens com.example.demo.ui to javafx.fxml;
     opens com.example.demo.destructibles to javafx.fxml;
+    opens com.example.demo.menus to javafx.fxml;
 }
