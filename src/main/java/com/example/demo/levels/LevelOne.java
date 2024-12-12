@@ -3,14 +3,20 @@ package com.example.demo.levels;
 import com.example.demo.destructibles.ActiveActorDestructible;
 import com.example.demo.actors.EnemyPlane;
 import javafx.stage.Stage;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 
 public class LevelOne extends LevelParent {
-	
+
 	private static final String BACKGROUND_IMAGE_NAME = "/com/example/demo/images/background1.jpg";
 	private static final int TOTAL_ENEMIES = 5;
 	private static final int KILLS_TO_ADVANCE = 10;
 	private static final double ENEMY_SPAWN_PROBABILITY = .20;
 	private static final int PLAYER_INITIAL_HEALTH = 5;
+	private Text killProText;
+	private Text killCountText;
+	private Text levelOneText;
 
 	public LevelOne(Stage stage, double screenHeight, double screenWidth) {
 		super(BACKGROUND_IMAGE_NAME, screenHeight, screenWidth, PLAYER_INITIAL_HEALTH);
@@ -31,6 +37,26 @@ public class LevelOne extends LevelParent {
 	@Override
 	protected void initializeFriendlyUnits() {
 		getRoot().getChildren().add(getUser());
+		killProText = new Text("KILL TO PROCEED: 10");
+		killProText.setFill(Color.GREEN);
+		killProText.setStyle("-fx-font-size: 27;");
+		killProText.setX(getScreenWidth() - 285);
+		killProText.setY(40);
+		getRoot().getChildren().add(killProText);
+
+		killCountText = new Text("KILLCOUNT: " + user.getNumberOfKills());
+		killCountText.setFill(Color.BLACK);
+		killCountText.setStyle("-fx-font-size: 27;");
+		killCountText.setX(getScreenWidth() - 200);
+		killCountText.setY(75);
+		getRoot().getChildren().add(killCountText);
+
+		levelOneText = new Text("LEVEL 1");
+		levelOneText.setFill(Color.BLACK);
+		levelOneText.setStyle("-fx-font-size: 35;");
+		levelOneText.setX((getScreenWidth() /2) - 65 );
+		levelOneText.setY(50);
+		getRoot().getChildren().add(levelOneText);
 	}
 
 	@Override
@@ -59,4 +85,9 @@ public class LevelOne extends LevelParent {
 		return getUser().getNumberOfKills() >= KILLS_TO_ADVANCE;
 	}
 
+	@Override
+	protected void updateKillCount() {
+		super.updateKillCount();
+		killCountText.setText("KILLCOUNT: " + user.getNumberOfKills()); // Update the display
+	}
 }

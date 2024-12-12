@@ -3,6 +3,9 @@ package com.example.demo.levels;
 import com.example.demo.actors.BossPlane;
 import com.example.demo.ui.ShieldImage;
 import javafx.stage.Stage;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 
 public class LevelTwo extends LevelParent {
 
@@ -11,6 +14,9 @@ public class LevelTwo extends LevelParent {
 	private final BossPlane boss;
 	private LevelViewBoss levelViewBoss;
 	private ShieldImage shieldImage;
+	private Text bosshealthText;
+	private Text shieldText;
+	private Text levelTwoText;
 
 	public LevelTwo(Stage stage, double screenHeight, double screenWidth) {
 		super(BACKGROUND_IMAGE_NAME, screenHeight, screenWidth, PLAYER_INITIAL_HEALTH);
@@ -21,6 +27,26 @@ public class LevelTwo extends LevelParent {
 	@Override
 	protected void initializeFriendlyUnits() {
 		getRoot().getChildren().add(getUser());
+		bosshealthText = new Text("BOSS HEALTH: " + boss.getHealth());
+		bosshealthText.setFill(Color.DARKRED);
+		bosshealthText.setStyle("-fx-font-size: 27;");
+		bosshealthText.setX(getScreenWidth() - 225);
+		bosshealthText.setY(40);
+		getRoot().getChildren().add(bosshealthText);
+
+		shieldText = new Text();
+		shieldText.setFill(Color.BLACK);
+		shieldText.setStyle("-fx-font-size: 27;");
+		shieldText.setX(getScreenWidth() - 270);
+		shieldText.setY(75);
+		getRoot().getChildren().add(shieldText);
+
+		levelTwoText = new Text("LEVEL 2");
+		levelTwoText.setFill(Color.BLACK);
+		levelTwoText.setStyle("-fx-font-size: 35;");
+		levelTwoText.setX((getScreenWidth() /2) - 65);
+		levelTwoText.setY(50);
+		getRoot().getChildren().add(levelTwoText);
 	}
 
 	@Override
@@ -62,7 +88,17 @@ public class LevelTwo extends LevelParent {
 	@Override
 	protected void updateScene() {
 		super.updateScene();
-		updateShieldPosition();
+		bosshealthText.setText("BOSS HEALTH: " + boss.getHealth());
+		if (boss.isShielded()) {
+			shieldText.setText("SHIELD: Activated");
+			shieldText.setFill(Color.GREEN);
+			updateShieldPosition();
+		}
+		else {
+			shieldText.setText("SHIELD: Deactivated");
+			shieldText.setFill(Color.RED);
+			updateShieldPosition();
+		}
 		if (boss.getFramesWithShieldActivated()==0) {
 			getRoot().getChildren().remove(shieldImage);
 			shieldImage.hideShield();
