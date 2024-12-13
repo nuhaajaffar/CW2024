@@ -107,6 +107,7 @@ For additional assistance, visit the following resources:
      - **Killcount Text** : Added this text to  notify the users how many enemies have they killed and how many enemies they have to kill left to proceed to the next level.
 
 ---
+---
 
 ## Implemented but Not Working Properly
 ### Feature 1: Pause Menu
@@ -119,6 +120,7 @@ For additional assistance, visit the following resources:
 - **Issues encountered**: At first, I tried implementing this font before I added the menus and there was no problem at that time. But then I decided to create the menus first then edit the text. After I created the text, suddenly the game is not playable anymore. I found out that the issue is caused by the system that is trying to load the game and the text at the same time which causes the system to be jammed.
 - **Attempts to Fix**: I tried to implement a code that will delay the loading of text. But then, the planes didn't show, but the bullets are still on the screen from my shooting and the enemies as well. This causes me to decide to not implement the font style and just use the normal one.
 
+---
 ---
 
 ## Features Not Implemented
@@ -140,6 +142,7 @@ For additional assistance, visit the following resources:
 - **Purpose**: <Brief description>
 - **Location**: `<directory>/<file_name>.java`
 
+---
 ---
 
 ## Modified Java Classes
