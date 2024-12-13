@@ -112,7 +112,7 @@ For additional assistance, visit the following resources:
 - **Attempts to Fix** : As mentioned, I did some debugging steps and tried to change the resume button function with just pressing the spacebar to proceed. But, this caused the whole game to not play and was bombarded with errors. So, I decided to just let the Pause Menu be not fully functional where the users can only go to the main menu.
 
 ### Feature 2: Font Style
-- **Description**: A digitalfont.ttf is actually added to change the font style of the text from the levels. Location of file is `CW2024\src\main\resources\com\example\demo\font`
+- **Description**: A digitalfont.ttf is actually added to change the font style of the text from the levels. Location of file is `CW2024\src\main\resources\com\example\demo\font\digitalfont.ttf`
 - **Issues encountered**: At first, I tried implementing this font before I added the menus and there was no problem at that time. But then I decided to create the menus first then edit the text. After I created the text, suddenly the game is not playable anymore. I found out that the issue is caused by the system that is trying to load the game and the text at the same time which causes the system to be jammed.
 - **Attempts to Fix**: I tried to implement a code that will delay the loading of text. But then, the planes didn't show, but the bullets are still on the screen from my shooting and the enemies as well. This causes me to decide to not implement the font style and just use the normal one.
 
