@@ -1,11 +1,15 @@
 # COMP2042 - Developing Maintainable Software
+
+# <ins> GitHub: </ins>
+
 [CW2024 - Nuhaa Jaffar](<https://github.com/nuhaajaffar/CW2024.git>)
 
 ---
+---
 
-## Compilation Instructions  
+# <ins> Compilation Instructions </ins>
 
-### 1. Prerequisites  
+## 1. Prerequisites  
 
 Before you begin, ensure the following tools and dependencies are set up:
 
@@ -14,7 +18,7 @@ Before you begin, ensure the following tools and dependencies are set up:
 - **(Optional)** An Integrated Development Environment (IDE) like [IntelliJ IDEA](https://www.jetbrains.com/idea/).  
 - **(Optional)** `git` to clone the repository directly.  
 
-### 2. Clone the Repository  
+## 2. Clone the Repository  
 
 You can clone the repository using `git` or manually download it as a ZIP file.
 
@@ -34,7 +38,7 @@ If you don't have `git` installed on your system, follow these steps to download
 3. Extract the downloaded `.zip` file.  
 4. Navigate to the extracted project directory.
 
-### 3. Build and Run  
+## 3. Build and Run  
 
 You can build and run the application using either the command line or IntelliJ IDEA.
 
@@ -73,7 +77,8 @@ For additional assistance, visit the following resources:
 ---
 ---
 
-## Implemented and Working Properly
+# <ins> Implemented and Working Properly </ins>
+
 ### Feature 1 : Menu
 - **Description** :
      - **Main Menu** : The menu that users will see as they launch the game. From this menu, users can go to How To Play Menu to view the instructions on how to play the game. They can come back to the main menu and click on Play to proceed to Level 1.
@@ -105,7 +110,8 @@ For additional assistance, visit the following resources:
 ---
 ---
 
-## Implemented but Not Working Properly
+# <ins> Implemented but Not Working Properly </ins>
+
 ### Feature 1 : Pause Menu
 - **Description**: Pause Menu is supposed to be a part of the others menus. 
 - **Issues encountered**: Users can press 'P' to pause and it will be redirected to the Pause Menu. On the menu, users are supporsed to be able to resume the game or go back to main menu. Currently, only the going back to main menu function is working meanwhile the resume function is not. It keeps saying that currentLevel is null from the debugging steps I had done.
@@ -119,7 +125,8 @@ For additional assistance, visit the following resources:
 ---
 ---
 
-## Features Not Implemented
+# <ins> Features Not Implemented </ins>
+
 ### Feature 1 : Sound Effects
 - **Reason for Omission**: Adding sound effects was in the plan. But it was not the priority as I don't find it to be important for the game. Thus, it is not implemented due to time constraints.
 
@@ -157,182 +164,182 @@ For additional assistance, visit the following resources:
 
 ### Class 1 : ActiveActor
 1. **Modifications Made** : Refactored the class into actors package.
-   **Reason for Changes** : For better organization of actor-related classes.
+   - **Reason for Changes** : For better organization of actor-related classes.
 
 ### Class 2 : BossPlane
 1. **Modifications Made** : Refactored the class into actors package.
-   **Reason for Changes** : For better organization of actor-related classes.
+   - **Reason for Changes** : For better organization of actor-related classes.
 
 2. **Modifications Made** : Hitbox implementations.
-   **Reason for Changes** : To improve the target accuracy because it was hitting the whole image of BossPlane.
+   - **Reason for Changes** : To improve the target accuracy because it was hitting the whole image of BossPlane.
 
 3. **Modifications Made** : Calling updateHitbox() to updatePostion().
-   **Reason for Changes** : Ensure the hitbox is always updated as the BossPlane moves.
+   - **Reason for Changes** : Ensure the hitbox is always updated as the BossPlane moves.
 
 4. **Modifications Made** : Adjusted the upper bound.
-   **Reason for Changes** : Ensure the BossPlane doesn't reach the heart display and text.
+   - **Reason for Changes** : Ensure the BossPlane doesn't reach the heart display and text.
     
 5. **Modifications Made** : Changed() isShielded to public.
-   **Reason for Changes** : To be able to implement the shield activation and deactivation.
+   - **Reason for Changes** : To be able to implement the shield activation and deactivation.
    
 ### Class 3 : EnemyPlane
 1. **Modifications Made** : Refactored the class into actors package.
-   **Reason for Changes** : For better organization of actor-related classes.
+   - **Reason for Changes** : For better organization of actor-related classes.
 
 2. **Modifications Made** : Hitbox implementations.
-   **Reason for Changes** : To improve the target accuracy because it was hitting the whole image of EnemyPlane.
+   - **Reason for Changes** : To improve the target accuracy because it was hitting the whole image of EnemyPlane.
 
 3. **Modifications Made** : Calling updateHitbox() to updatePostion().
-   **Reason for Changes** : Ensure the hitbox is always updated as the EnemyPlane moves.   
+   - **Reason for Changes** : Ensure the hitbox is always updated as the EnemyPlane moves.   
 
 ### Class 4 : FighterPlane
 1. **Modifications Made** : Refactored the class into actors package.
-   **Reason for Changes** : For better organization of actor-related classes.
+   - **Reason for Changes** : For better organization of actor-related classes.
 
 ### Class 5 : UserPlane
 1. **Modifications Made** : Refactored the class into actors package.
-   **Reason for Changes** : For better organization of actor-related classes.
+   - **Reason for Changes** : For better organization of actor-related classes.
 
 2. **Modifications Made** : Added left and right movement.
-   **Reason for Changes** : For enhancing gameplay and engaging users.
+   - **Reason for Changes** : For enhancing gameplay and engaging users.
 
 3. **Modifications Made** : Added WASD for movement and mouse click for shooting.
-   **Reason for Changes** : For enhancing gameplay and engaging users.
+   - **Reason for Changes** : For enhancing gameplay and engaging users.
 
 4. **Modifications Made** : Hitbox implementations.
-   **Reason for Changes** : To improve the target accuracy because it was hitting the whole image of UserPlane.
+   - **Reason for Changes** : To improve the target accuracy because it was hitting the whole image of UserPlane.
 
 5. **Modifications Made** : Calling updateHitbox() to updatePostion().
-   **Reason for Changes** : Ensure the hitbox is always updated as the UserPlane moves.
+   - **Reason for Changes** : Ensure the hitbox is always updated as the UserPlane moves.
 
 6. **Modifications Made** : Adjusted the upper bound.
-   **Reason for Changes** : Ensure the UserPlane doesn't reach the heart display and text.      
+   - **Reason for Changes** : Ensure the UserPlane doesn't reach the heart display and text.      
 
 
 ## _controller package_
 
 ### Class 6 : Controller
 1. **Modifications Made** : Added goToMenu() for menu implementation.
-   **Reason for Changes** : To be able to tarnsition to all menus.
+   - **Reason for Changes** : To be able to tarnsition to all menus.
 
 2. **Modifications Made** : Added implementation of redirecting to Pause Menu.
-   **Reason for Changes** : For enhancing gameplay and engaging users.   
+   - **Reason for Changes** : For enhancing gameplay and engaging users.   
 
 ### Class 7 : Main
 1. **Modifications Made** : Add try and catch method for Main.
-   **Reason for Changes** : There was an issue to launch the game, hence the method is used.
+   - **Reason for Changes** : There was an issue to launch the game, hence the method is used.
 
 
-# destructibles package
+## _destructibles package_
 
 ### Class 8 : ActiveActorDestructible
 1. **Modifications Made** : Refactored the class into destructibles package.
-   **Reason for Changes** : For better organization of destructibles-related classes.
+   - **Reason for Changes** : For better organization of destructibles-related classes.
 
 ### Class 9 : Destructible
 1. **Modifications Made** : Refactored the class into destructibles package.
-   **Reason for Changes** : For better organization of destructibles-related classes.
+   - **Reason for Changes** : For better organization of destructibles-related classes.
 
 
 ## _levels package_
 
 ### Class 10 : LevelOne
 1. **Modifications Made** : Refactored the class into levels package.
-   **Reason for Changes** : For better organization of levels-related classes.
+   - **Reason for Changes** : For better organization of levels-related classes.
 
 2. **Modifications Made** : Added Level 1 text on the display.
-   **Reason for Changes** : For enhancing gameplay and engaging users. 
+   - **Reason for Changes** : For enhancing gameplay and engaging users. 
 
 3. **Modifications Made** : Added Kill To Proceed text on the display.
-   **Reason for Changes** : For enhancing gameplay and engaging users. 
+   - **Reason for Changes** : For enhancing gameplay and engaging users. 
 
 4. **Modifications Made** : Added Kill Count text on the display.
-   **Reason for Changes** : For enhancing gameplay and engaging users.
+   - **Reason for Changes** : For enhancing gameplay and engaging users.
 
 ### Class 11 : LevelParent 
 1. **Modifications Made** : Refactored the class into levels package.
-   **Reason for Changes** : For better organization of levels-related classes.
+   - **Reason for Changes** : For better organization of levels-related classes.
 
 2. **Modifications Made** : Added goToMenu() for menu implementation.
-   **Reason for Changes** : To be able to tarnsition to WinMenu and GameOverMenu.
+   - **Reason for Changes** : To be able to tarnsition to WinMenu and GameOverMenu.
 
 3. **Modifications Made** : Added left and right movement.
-   **Reason for Changes** : For enhancing gameplay and engaging users.
+   - **Reason for Changes** : For enhancing gameplay and engaging users.
 
 4. **Modifications Made** : Added WASD for movement and mouse click for shooting.
-   **Reason for Changes** : For enhancing gameplay and engaging users.
+   - **Reason for Changes** : For enhancing gameplay and engaging users.
    
 5. **Modifications Made** : Added timeline.pause();
-   **Reason for Changes** : Ensuring the users to be able to pause the game.
+   - **Reason for Changes** : Ensuring the users to be able to pause the game.
 
 ### Class 12 : LevelTwo 
 1. **Modifications Made** : Refactored the class into levels package.
-   **Reason for Changes** : For better organization of levels-related classes.
+   - **Reason for Changes** : For better organization of levels-related classes.
 
 2. **Modifications Made** : Added Level 2 text on the display.
-   **Reason for Changes** : For enhancing gameplay and engaging users. 
+   - **Reason for Changes** : For enhancing gameplay and engaging users. 
 
 3. **Modifications Made** : Added Kill To Proceed text on the display.
-   **Reason for Changes** : For enhancing gameplay and engaging users. 
+   - **Reason for Changes** : For enhancing gameplay and engaging users. 
 
 4. **Modifications Made** : Added Kill Count text on the display.
-   **Reason for Changes** : For enhancing gameplay and engaging users.
+   - **Reason for Changes** : For enhancing gameplay and engaging users.
 
 ### Class 13 : LevelView 
 1. **Modifications Made** : Refactored the class into levels package.
-   **Reason for Changes** : For better organization of levels-related classes.
+   - **Reason for Changes** : For better organization of levels-related classes.
 
 ### Class 14 : LevelViewBoss 
 1. **Modifications Made** : Refactored the class into levels package.
-   **Reason for Changes** : For better organization of levels-related classes.
+   - **Reason for Changes** : For better organization of levels-related classes.
 
 
 ## _projectiles package_
 
 ### Class 15 : BossProjectile 
 1. **Modifications Made** : Refactored the class into projectiles package.
-   **Reason for Changes** : For better organization of projectiles-related classes.
+   - **Reason for Changes** : For better organization of projectiles-related classes.
 
 2. **Modifications Made** : Hitbox implementations.
-   **Reason for Changes** : To improve the target accuracy because it was hitting the whole image of BossProjectile.
+   - **Reason for Changes** : To improve the target accuracy because it was hitting the whole image of BossProjectile.
 
 3. **Modifications Made** : Calling updateHitbox() to updatePostion().
-   **Reason for Changes** : Ensure the hitbox is always updated as the BossProjectile moves.  
+   - **Reason for Changes** : Ensure the hitbox is always updated as the BossProjectile moves.  
 
 ### Class 16 : EnemyProjectile 
 1. **Modifications Made** : Refactored the class into projectiles package.
-   **Reason for Changes** : For better organization of projectiles-related classes.
+   - **Reason for Changes** : For better organization of projectiles-related classes.
 
 2. **Modifications Made** : Hitbox implementations.
-   **Reason for Changes** : To improve the target accuracy because it was hitting the whole image of EnemyProjectile.
+   - **Reason for Changes** : To improve the target accuracy because it was hitting the whole image of EnemyProjectile.
 
 3. **Modifications Made** : Calling updateHitbox() to updatePostion().
-   **Reason for Changes** : Ensure the hitbox is always updated as the EnemyProjectile moves.
+   - **Reason for Changes** : Ensure the hitbox is always updated as the EnemyProjectile moves.
 
 ### Class 17 : Projectile 
 1. **Modifications Made** : Refactored the class into projectiles package.
-   **Reason for Changes** : For better organization of projectiles-related classes.
+   - **Reason for Changes** : For better organization of projectiles-related classes.
 
 ### Class 18 : UserProjectile 
 1. **Modifications Made** : Refactored the class into projectiles package.
-   **Reason for Changes** : For better organization of projectiles-related classes.
+   - **Reason for Changes** : For better organization of projectiles-related classes.
 
 2. **Modifications Made** : Hitbox implementations.
-   **Reason for Changes** : To improve the target accuracy because it was hitting the whole image of UserProjectile.
+   - **Reason for Changes** : To improve the target accuracy because it was hitting the whole image of UserProjectile.
 
 3. **Modifications Made** : Calling updateHitbox() to updatePostion().
-   **Reason for Changes** : Ensure the hitbox is always updated as the UserProjectile moves.
+   - **Reason for Changes** : Ensure the hitbox is always updated as the UserProjectile moves.
 
 
 ## _ui package_
 
 ### Class 19 : HeartDisplay 
 1. **Modifications Made** : Refactored the class into ui package.
-   **Reason for Changes** : For better organization of ui-related classes.
+   - **Reason for Changes** : For better organization of ui-related classes.
 
 ### Class 20 : ShieldImage 
 1. **Modifications Made** : Refactored the class into ui package.
-   **Reason for Changes** : For better organization of ui-related classes.
+   - **Reason for Changes** : For better organization of ui-related classes.
 
 ---
 --- 
