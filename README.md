@@ -91,6 +91,8 @@ For additional assistance, visit the following resources:
 ## Feature 2 : Plane Left and Right Movement
 - **Description** :
      - **Arrow Left and Right** : Users can move to the left and right which is an additional where they can only move up and down at the first place.
+ 
+---
    
 ## Feature 3 : WASD Control and Mouse Click
 - **Description** :
