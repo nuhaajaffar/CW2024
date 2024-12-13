@@ -15,8 +15,8 @@ Before you begin, ensure the following tools and dependencies are set up:
 
 - **Java Development Kit (JDK)** version **19 (or above)** with **JavaFX** support.  
 - **Apache Maven** for dependency management and the build process.  
-- **(Optional)** An Integrated Development Environment (IDE) like [IntelliJ IDEA](https://www.jetbrains.com/idea/).  
-- **(Optional)** `git` to clone the repository directly.  
+- **Integrated Development Environment (IDE)** like [IntelliJ IDEA](https://www.jetbrains.com/idea/).  
+- `git` to clone the repository directly.  
 
 ## 2. Clone the Repository  
 
