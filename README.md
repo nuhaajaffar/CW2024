@@ -82,7 +82,7 @@ For additional assistance, visit the following resources:
 ## Feature 1 : Menu
 - **Description** :
      - **Main Menu** : The menu that users will see as they launch the game. From this menu, users can go to How To Play Menu to view the instructions on how to play the game. They can come back to the main menu and click on Play to proceed to Level 1.
-     - **How To Play Menu** : The menu that users can view the instructions of the game.
+     - **How To Play Menu** : The menu that allows users to view the instructions of the game.
      - **Win Menu** : The menu that will appear when the users had won and finishes the game, offering an option to replay the game from Level 1 (Users can also press spacebar to proceed) or return to main menu.
      - **Game Over Menu** : The menu that will appear when the users are defeated, offering an option to replay the game from Level 1 (Users can also press spacebar to proceed) or return to main menu.
 
@@ -91,6 +91,8 @@ For additional assistance, visit the following resources:
 ## Feature 2 : Plane Left and Right Movement
 - **Description** :
      - **Arrow Left and Right** : Users can move to the left and right which is an additional where they can only move up and down at the first place.
+ 
+---
    
 ## Feature 3 : WASD Control and Mouse Click
 - **Description** :
@@ -127,7 +129,7 @@ For additional assistance, visit the following resources:
 
 ## Feature 2 : Font Style
 - **Description**: A digitalfont.ttf is actually added to change the font style of the text from the levels. Location of file is `CW2024\src\main\resources\com\example\demo\font\digitalfont.ttf`
-- **Issues encountered**: At first, I tried implementing this font before I added the menus and there was no problem at that time. But then I decided to create the menus first then edit the text. After I created the text, suddenly the game is not playable anymore. I found out that the issue is caused by the system that is trying to load the game and the text at the same time which causes the system to be jammed.
+- **Issues encountered**: At first, I tried implementing this font before I planned to add the menus and there was no problem at that time. But then I decided to create the menus then edit the text. After I created the text, suddenly the game is not playable anymore. I found out that the issue is caused by the system that is trying to load the game and the text at the same time which causes the system to be jammed.
 - **Attempts to Fix**: I tried to implement a code that will delay the loading of text. But then, the planes didn't show, but the bullets are still on the screen from my shooting and the enemies as well. This causes me to decide to not implement the font style and just use the normal one.
 
 ---
@@ -136,12 +138,12 @@ For additional assistance, visit the following resources:
 # <ins> Features Not Implemented </ins>
 
 ## Feature 1 : Sound Effects
-- **Reason for Omission**: Adding sound effects was in the plan. But it was not the priority as I don't find it to be important for the game. Thus, it is not implemented due to time constraints.
+- **Reason for Omission** : Adding sound effects was in the plan. But it was not the priority as I don't find it to be important for the game. Thus, it is not implemented due to time constraints.
 
 ---
 
 ## Feature 2 : Power Ups
-- Adding power ups was also in the plan. Personally, I think this feature is quite important as it will be more engaging for users to have power ups such us gain health, multiple bullets or double damage. Unfortunately, it was not implemented due to time constraints.
+- **Reason for Omission** :Adding power ups was also in the plan. Personally, I think this feature is quite important as it will be more engaging for users to have power ups such us gain health, multiple bullets or double damage. Unfortunately, it was not implemented due to time constraints.
 
 ---
 ---
@@ -328,10 +330,10 @@ For additional assistance, visit the following resources:
 
 ### Class 6 : Controller
 1. **Modifications Made** : Added goToMenu() for menu implementation.
-   - **Reason for Changes** : To be able to tarnsition to all menus.
+   - **Reason for Changes** : To be able to transition to all menus.
 
 2. **Modifications Made** : Added implementation of redirecting to Pause Menu.
-   - **Reason for Changes** : For enhancing gameplay and engaging users.   
+   - **Reason for Changes** : For enhancing gameplay.   
 
 ---
 
@@ -364,13 +366,13 @@ For additional assistance, visit the following resources:
    - **Reason for Changes** : For better organization of levels-related classes.
 
 2. **Modifications Made** : Added Level 1 text on the display.
-   - **Reason for Changes** : For enhancing gameplay and engaging users. 
+   - **Reason for Changes** : For enhancing gameplay. 
 
 3. **Modifications Made** : Added Kill To Proceed text on the display.
-   - **Reason for Changes** : For enhancing gameplay and engaging users. 
+   - **Reason for Changes** : For enhancing gameplay. 
 
 4. **Modifications Made** : Added Kill Count text on the display.
-   - **Reason for Changes** : For enhancing gameplay and engaging users.
+   - **Reason for Changes** : For enhancing gameplay.
 
 ---
 
@@ -385,7 +387,7 @@ For additional assistance, visit the following resources:
    - **Reason for Changes** : For enhancing gameplay and engaging users.
 
 4. **Modifications Made** : Added WASD for movement and mouse click for shooting.
-   - **Reason for Changes** : For enhancing gameplay and engaging users.
+   - **Reason for Changes** : For enhancing gameplay.
    
 5. **Modifications Made** : Added timeline.pause();
    - **Reason for Changes** : Ensuring the users to be able to pause the game.
@@ -397,13 +399,13 @@ For additional assistance, visit the following resources:
    - **Reason for Changes** : For better organization of levels-related classes.
 
 2. **Modifications Made** : Added Level 2 text on the display.
-   - **Reason for Changes** : For enhancing gameplay and engaging users. 
+   - **Reason for Changes** : For enhancing gameplay. 
 
 3. **Modifications Made** : Added Kill To Proceed text on the display.
-   - **Reason for Changes** : For enhancing gameplay and engaging users. 
+   - **Reason for Changes** : For enhancing gameplay. 
 
 4. **Modifications Made** : Added Kill Count text on the display.
-   - **Reason for Changes** : For enhancing gameplay and engaging users.
+   - **Reason for Changes** : For enhancing gameplay.
 
 ---
 
@@ -482,16 +484,16 @@ For additional assistance, visit the following resources:
 
 # <ins> Unexpected Problems </ins>
    
-**Problem 1**: Main class cannot be run near the deadline.
+**Problem 1**: Main class cannot run near the deadline after generating Javadoc.
    - **Description**: Near the deadline after generating my Javadoc, Main class suddenly had an issue where it cannot launch the game.
         - **Resolution**: I used try and catch method to solve the issue and it runs now.
 
 **Problem 2**: Sometimes fixing an error will bring many more errors
    - **Description**: When I thought I was fixing the code, the code generated more errors meaning we didn't fix the code but make it worse. This made me panic few times.
-        - **Resolution**: After that, I made sure that I keep a copy of the current code every time I made changes to that specific code. And, I also commited on GitHub only when I'm sure the code is working. And, I make use of the branches feature to not directly make changes on my master branch.
+        - **Resolution**: After that, I made sure that I keep a copy of the current code every time I made changes to that specific code. And, I also commited and push on GitHub only when I'm sure the code is working. And, I make use of the branches feature to not directly make changes on my master branch.
 
 **Problem 3**: menus package wasn't updating to GitHub. 
-   - **Description**: This occured when it was early days of the coursework. I wasn't that familiar with the branches feature in GitHub. And, I accidentally overwrote a branch with another branch where I did the coding for menus package. Therefore, the menus package wasn't not in the GitHub for some time when I thought it was until I did the Menu implementation. It was on my IntelliJ Project but not in GitHub.
+   - **Description**: This occured when it was early days of the coursework. I wasn't that familiar with the branches feature in GitHub. And, I accidentally overwrote a branch with another branch where I did the coding for menus package. Therefore, the menus package wasn't in the GitHub for some time when I thought it was. Until I did the Menu implementation, then I realised the packages are not there. It was on my IntelliJ Project but not in GitHub.
         - **Resolution**: Being familiar with the branches feature makes me handle this issue easily. I created a new branch and added all the menu files and successfully merge it to the master branch.
    
 ---
