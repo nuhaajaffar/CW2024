@@ -138,12 +138,12 @@ For additional assistance, visit the following resources:
 # <ins> Features Not Implemented </ins>
 
 ## Feature 1 : Sound Effects
-- **Reason for Omission**: Adding sound effects was in the plan. But it was not the priority as I don't find it to be important for the game. Thus, it is not implemented due to time constraints.
+- **Reason for Omission** : Adding sound effects was in the plan. But it was not the priority as I don't find it to be important for the game. Thus, it is not implemented due to time constraints.
 
 ---
 
 ## Feature 2 : Power Ups
-- Adding power ups was also in the plan. Personally, I think this feature is quite important as it will be more engaging for users to have power ups such us gain health, multiple bullets or double damage. Unfortunately, it was not implemented due to time constraints.
+- **Reason for Omission** :Adding power ups was also in the plan. Personally, I think this feature is quite important as it will be more engaging for users to have power ups such us gain health, multiple bullets or double damage. Unfortunately, it was not implemented due to time constraints.
 
 ---
 ---
