@@ -493,7 +493,7 @@ For additional assistance, visit the following resources:
         - **Resolution**: After that, I made sure that I keep a copy of the current code every time I made changes to that specific code. And, I also commited on GitHub only when I'm sure the code is working. And, I make use of the branches feature to not directly make changes on my master branch.
 
 **Problem 3**: menus package wasn't updating to GitHub. 
-   - **Description**: This occured when it was early days of the coursework. I wasn't that familiar with the branches feature in GitHub. And, I accidentally overwrote a branch with another branch where I did the coding for menus package. Therefore, the menus package wasn't not in the GitHub for some time when I thought it was until I did the Menu implementation. It was on my IntelliJ Project but not in GitHub.
+   - **Description**: This occured when it was early days of the coursework. I wasn't that familiar with the branches feature in GitHub. And, I accidentally overwrote a branch with another branch where I did the coding for menus package. Therefore, the menus package wasn't in the GitHub for some time when I thought it was until I did the Menu implementation. It was on my IntelliJ Project but not in GitHub.
         - **Resolution**: Being familiar with the branches feature makes me handle this issue easily. I created a new branch and added all the menu files and successfully merge it to the master branch.
    
 ---
