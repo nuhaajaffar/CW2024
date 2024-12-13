@@ -129,7 +129,7 @@ For additional assistance, visit the following resources:
 
 ## Feature 2 : Font Style
 - **Description**: A digitalfont.ttf is actually added to change the font style of the text from the levels. Location of file is `CW2024\src\main\resources\com\example\demo\font\digitalfont.ttf`
-- **Issues encountered**: At first, I tried implementing this font before I added the menus and there was no problem at that time. But then I decided to create the menus first then edit the text. After I created the text, suddenly the game is not playable anymore. I found out that the issue is caused by the system that is trying to load the game and the text at the same time which causes the system to be jammed.
+- **Issues encountered**: At first, I tried implementing this font before I planned to add the menus and there was no problem at that time. But then I decided to create the menus then edit the text. After I created the text, suddenly the game is not playable anymore. I found out that the issue is caused by the system that is trying to load the game and the text at the same time which causes the system to be jammed.
 - **Attempts to Fix**: I tried to implement a code that will delay the loading of text. But then, the planes didn't show, but the bullets are still on the screen from my shooting and the enemies as well. This causes me to decide to not implement the font style and just use the normal one.
 
 ---
