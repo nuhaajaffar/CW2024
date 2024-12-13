@@ -82,7 +82,7 @@ For additional assistance, visit the following resources:
 ## Feature 1 : Menu
 - **Description** :
      - **Main Menu** : The menu that users will see as they launch the game. From this menu, users can go to How To Play Menu to view the instructions on how to play the game. They can come back to the main menu and click on Play to proceed to Level 1.
-     - **How To Play Menu** : The menu that users can view the instructions of the game.
+     - **How To Play Menu** : The menu that allows users to view the instructions of the game.
      - **Win Menu** : The menu that will appear when the users had won and finishes the game, offering an option to replay the game from Level 1 (Users can also press spacebar to proceed) or return to main menu.
      - **Game Over Menu** : The menu that will appear when the users are defeated, offering an option to replay the game from Level 1 (Users can also press spacebar to proceed) or return to main menu.
 
