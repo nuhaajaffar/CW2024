@@ -92,8 +92,8 @@ For additional assistance, visit the following resources:
 
 ### Feature 4: Levels Addition
 - **Description** :
-     - **Level 2** : Added level 2 which is a normal level with more enemies to kill before proceeding.
-     - **Level 3** : Added level 3 which is also a normal level with more enemies to kill before proceeding.
+     - **Level 2** : Added level 2 which is a normal level with more enemies to kill before proceeding to the next level.
+     - **Level 3** : Added level 3 which is also a normal level with more enemies to kill before proceeding to the next level. And also, this level has more enemies approaching compared to Level 1 and Level 2.
      - **Level 4** : Added level 4 which is the Boss Level and is also the final. A shield is implemented here for the Boss.
 
 ### Feature 5: Added Text
