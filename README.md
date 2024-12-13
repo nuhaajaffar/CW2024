@@ -330,10 +330,10 @@ For additional assistance, visit the following resources:
 
 ### Class 6 : Controller
 1. **Modifications Made** : Added goToMenu() for menu implementation.
-   - **Reason for Changes** : To be able to tarnsition to all menus.
+   - **Reason for Changes** : To be able to transition to all menus.
 
 2. **Modifications Made** : Added implementation of redirecting to Pause Menu.
-   - **Reason for Changes** : For enhancing gameplay and engaging users.   
+   - **Reason for Changes** : For enhancing gameplay.   
 
 ---
 
@@ -366,13 +366,13 @@ For additional assistance, visit the following resources:
    - **Reason for Changes** : For better organization of levels-related classes.
 
 2. **Modifications Made** : Added Level 1 text on the display.
-   - **Reason for Changes** : For enhancing gameplay and engaging users. 
+   - **Reason for Changes** : For enhancing gameplay. 
 
 3. **Modifications Made** : Added Kill To Proceed text on the display.
-   - **Reason for Changes** : For enhancing gameplay and engaging users. 
+   - **Reason for Changes** : For enhancing gameplay. 
 
 4. **Modifications Made** : Added Kill Count text on the display.
-   - **Reason for Changes** : For enhancing gameplay and engaging users.
+   - **Reason for Changes** : For enhancing gameplay.
 
 ---
 
@@ -387,7 +387,7 @@ For additional assistance, visit the following resources:
    - **Reason for Changes** : For enhancing gameplay and engaging users.
 
 4. **Modifications Made** : Added WASD for movement and mouse click for shooting.
-   - **Reason for Changes** : For enhancing gameplay and engaging users.
+   - **Reason for Changes** : For enhancing gameplay.
    
 5. **Modifications Made** : Added timeline.pause();
    - **Reason for Changes** : Ensuring the users to be able to pause the game.
@@ -399,13 +399,13 @@ For additional assistance, visit the following resources:
    - **Reason for Changes** : For better organization of levels-related classes.
 
 2. **Modifications Made** : Added Level 2 text on the display.
-   - **Reason for Changes** : For enhancing gameplay and engaging users. 
+   - **Reason for Changes** : For enhancing gameplay. 
 
 3. **Modifications Made** : Added Kill To Proceed text on the display.
-   - **Reason for Changes** : For enhancing gameplay and engaging users. 
+   - **Reason for Changes** : For enhancing gameplay. 
 
 4. **Modifications Made** : Added Kill Count text on the display.
-   - **Reason for Changes** : For enhancing gameplay and engaging users.
+   - **Reason for Changes** : For enhancing gameplay.
 
 ---
 
@@ -484,16 +484,16 @@ For additional assistance, visit the following resources:
 
 # <ins> Unexpected Problems </ins>
    
-**Problem 1**: Main class cannot be run near the deadline.
+**Problem 1**: Main class cannot run near the deadline after generating Javadoc.
    - **Description**: Near the deadline after generating my Javadoc, Main class suddenly had an issue where it cannot launch the game.
         - **Resolution**: I used try and catch method to solve the issue and it runs now.
 
 **Problem 2**: Sometimes fixing an error will bring many more errors
    - **Description**: When I thought I was fixing the code, the code generated more errors meaning we didn't fix the code but make it worse. This made me panic few times.
-        - **Resolution**: After that, I made sure that I keep a copy of the current code every time I made changes to that specific code. And, I also commited on GitHub only when I'm sure the code is working. And, I make use of the branches feature to not directly make changes on my master branch.
+        - **Resolution**: After that, I made sure that I keep a copy of the current code every time I made changes to that specific code. And, I also commited and push on GitHub only when I'm sure the code is working. And, I make use of the branches feature to not directly make changes on my master branch.
 
 **Problem 3**: menus package wasn't updating to GitHub. 
-   - **Description**: This occured when it was early days of the coursework. I wasn't that familiar with the branches feature in GitHub. And, I accidentally overwrote a branch with another branch where I did the coding for menus package. Therefore, the menus package wasn't in the GitHub for some time when I thought it was until I did the Menu implementation. It was on my IntelliJ Project but not in GitHub.
+   - **Description**: This occured when it was early days of the coursework. I wasn't that familiar with the branches feature in GitHub. And, I accidentally overwrote a branch with another branch where I did the coding for menus package. Therefore, the menus package wasn't in the GitHub for some time when I thought it was. Until I did the Menu implementation, then I realised the packages are not there. It was on my IntelliJ Project but not in GitHub.
         - **Resolution**: Being familiar with the branches feature makes me handle this issue easily. I created a new branch and added all the menu files and successfully merge it to the master branch.
    
 ---
