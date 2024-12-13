@@ -14,8 +14,6 @@ Before you begin, ensure the following tools and dependencies are set up:
 - **(Optional)** An Integrated Development Environment (IDE) like [IntelliJ IDEA](https://www.jetbrains.com/idea/).  
 - **(Optional)** `git` to clone the repository directly.  
 
----
-
 ### 2. Clone the Repository  
 
 You can clone the repository using `git` or manually download it as a ZIP file.
@@ -35,8 +33,6 @@ If you don't have `git` installed on your system, follow these steps to download
 2. Click the **Code** button and select **Download ZIP**.  
 3. Extract the downloaded `.zip` file.  
 4. Navigate to the extracted project directory.
-
----
 
 ### 3. Build and Run  
 
